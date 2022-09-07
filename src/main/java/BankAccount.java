@@ -73,7 +73,9 @@ public class BankAccount {
         System.out.println("Sorry, the amount withdrawn must be greater than 0.");
     else if(amount>accountBalance)
         System.out.println("Sorry, you cannot withdraw more than the account balance");
-
+    else
+        return accountBalance-=amount;
+    return accountBalance;
     }
 
     /**
@@ -91,9 +93,13 @@ public class BankAccount {
      */
     public double AddInterest(int numYears, double interestRate)
     {
-
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        if(numYears<0)
+            System.out.println("Sorry, the number of years must be an integer greater than 0");
+        else if(interestRate<0)
+            System.out.println("Sorry, the interest rate must be greater than 0");
+        else
+            return accountBalance*=numYears*interestRate;
+        return accountBalance;
     }
 
     /**
@@ -106,9 +112,7 @@ public class BankAccount {
      */
     public String toString()
     {
-
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        return "Name: " + name + "/n" +"Account Balance: " +  accountBalance;
     }
 
     /**

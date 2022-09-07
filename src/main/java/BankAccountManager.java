@@ -69,8 +69,7 @@ public class BankAccountManager {
      */
     public static void PrintAccountInfo(BankAccount account)
     {
-
+        System.out.println(account.toString());
         // write your code above and remove the line below
-        throw new UnsupportedOperationException();
     }
 }
