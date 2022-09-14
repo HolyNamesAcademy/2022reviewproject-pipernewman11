@@ -8,9 +8,7 @@ public class ArrayListPractice {
      * @return The first element in the list.
      */
     public static int GetFirst(ArrayList<Integer> numbers) {
-
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+       return numbers.get(0);
     }
 
     /**
@@ -20,9 +18,7 @@ public class ArrayListPractice {
      * @return The third element in the list.
      */
     public static int GetThird(ArrayList<Integer> numbers) {
-
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+       return numbers.get(2);
     }
 
     /**
@@ -32,9 +28,7 @@ public class ArrayListPractice {
      * @return The last element in the list.
      */
     public static int GetLast(ArrayList<Integer> numbers) {
-
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        return numbers.get(numbers.size()-1);
     }
 
     /**
@@ -44,9 +38,10 @@ public class ArrayListPractice {
      * @return The sum of the elements in the list.
      */
     public static int GetSum(ArrayList<Integer> numbers) {
-
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        int sum = 0;
+        for(int i = 0; i<numbers.size(); i++)
+            sum += numbers.get(i);
+        return sum;
     }
 
     /**
@@ -60,10 +55,11 @@ public class ArrayListPractice {
      * @return A string representing the list.
      */
     public static String ConvertToString(ArrayList<Integer> numbers) {
-String numberList = "";
+        String numberList = "";
         for(int i = 0; i <numbers.size() - 1; i++)
             numberList+=numbers.get(i) + " ";
-        numberList+=numbers.get(numbers.size()-1); return numberList;
+        numberList+=numbers.get(numbers.size()-1);
+        return numberList;
     }
 
     /**
@@ -73,9 +69,12 @@ String numberList = "";
      * @return The largest element in the list.
      */
     public static int GetMax(ArrayList<Integer> numbers) {
+        int max = numbers.get(0);
+        for(int i = 0; i<numbers.size(); i++)
+            if(numbers.get(i)>max)
+                max = numbers.get(i);
 
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        return max;
     }
 
     /**
@@ -93,9 +92,16 @@ String numberList = "";
      * @return A list of all numbers between first and last.
      */
     public static ArrayList<Integer> CreateNumberArray(int first, int last) {
+        ArrayList<Integer> list = new ArrayList();
+        if (last - first == 0)
+            return list;
+        else
+            for(int i = 0; i<last-first; i++)
+                for(int r = first; i<= last; first ++)
+                    list.add( i, r);
 
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+            return list;
+
     }
 
     /**
@@ -106,9 +112,9 @@ String numberList = "";
      * @return The first student whose favorite color is the one specified.
      */
     public static Student GetFirstStudentWithFavoriteColor(ArrayList<Student> students, String color) {
-
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        for(int i =0; i < students.size(); i++)
+            if(students.get(i).GetFavoriteColor().equals(color))
+                return students.get(i);
     }
 
     /**
@@ -119,9 +125,10 @@ String numberList = "";
      * @return The favorite color of the specified student.
      */
     public static String GetFavoriteColorOfStudent(ArrayList<Student> students, String name) {
-
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        for (int i = 0; i < students.size(); i++)
+            if(students.get(i).GetName().equals(name))
+                return students.get(i).GetFavoriteColor();
+        return "";
     }
 
     /**
@@ -131,9 +138,16 @@ String numberList = "";
      * @return The tallest student in the list.
      */
     public static Student GetTallestStudent(ArrayList<Student> students) {
-
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        int height = students.get(0).GetHeight();
+        Student tallest = students.get(0);
+        for(int i = 0; i < students.size(); i++){
+            if(students.get(i).GetHeight() > height)
+        {
+            height = students.get(i).GetHeight();
+            tallest = students.get(i);
+        }
+        }
+        return tallest;
     }
 
     /**
@@ -149,7 +163,10 @@ String numberList = "";
      * @return List of Student objects.
      */
     public static ArrayList<Student> CreateStudentArray(ArrayList<String> names, ArrayList<Integer> heights, ArrayList<Integer> gradeLevels, ArrayList<String> favoriteColors, ArrayList<BankAccount> bankAccounts) {
-
+        ArrayList<Student> smile = new ArrayList<>();
+        for(int i = 0; i< names.size(); i++) {
+            smile.add(i, names.get(i).Get);
+        }
         // write your code above and remove the line below
         throw new UnsupportedOperationException();
     }
