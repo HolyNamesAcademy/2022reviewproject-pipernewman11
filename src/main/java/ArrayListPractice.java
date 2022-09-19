@@ -163,12 +163,11 @@ public class ArrayListPractice {
      * @return List of Student objects.
      */
     public static ArrayList<Student> CreateStudentArray(ArrayList<String> names, ArrayList<Integer> heights, ArrayList<Integer> gradeLevels, ArrayList<String> favoriteColors, ArrayList<BankAccount> bankAccounts) {
-        ArrayList<Student> smile = new ArrayList<>();
+        ArrayList<Student> stud = new ArrayList<>();
         for(int i = 0; i< names.size(); i++) {
-            smile.add(i, names.get(i).Get);
+            stud.add(i, new Student(names.get(i), heights.get(i), gradeLevels.get(i), favoriteColors.get(i), bankAccounts.get(i)));
         }
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        return stud;
     }
 
     /**
@@ -184,9 +183,14 @@ public class ArrayListPractice {
      * @return A string that lists the team number followed by each team.
      */
     public static String GetTeamsString(ArrayList<ArrayList<Student>> teams) {
+        String list =  new String();
+        for(int i = 0; i <teams.size(); i++)
+            for(int c = 0; c < teams.get(i).size(); c++)
+                list = String.valueOf((teams.get(i).get(c)));
+        return list;
+    }
 
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+    private static int teams(int i) {
     }
 
     /**
@@ -210,6 +214,7 @@ public class ArrayListPractice {
      * @return An ArrayList containing all the students in gradeLevel.
      */
     public static ArrayList<Student> GetStudentsInGradeLevel(ArrayList<Student> students, int gradeLevel) {
+
 
         // write your code above and remove the line below
         throw new UnsupportedOperationException();
