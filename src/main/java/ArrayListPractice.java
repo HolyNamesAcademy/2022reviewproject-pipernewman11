@@ -214,10 +214,11 @@ public class ArrayListPractice {
      * @return An ArrayList containing all the students in gradeLevel.
      */
     public static ArrayList<Student> GetStudentsInGradeLevel(ArrayList<Student> students, int gradeLevel) {
-
-
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        ArrayList<Student> grade = new ArrayList<>();
+        for(int i = 0; i< students.size(); i++)
+            if(students.get(i).GetGradeLevel()== gradeLevel)
+                grade.add(students.get(i));
+        return grade;
     }
 
     /**
@@ -231,9 +232,18 @@ public class ArrayListPractice {
      *     had sufficient funds in their account. Otherwise, false.
      */
     public static boolean TransferMoney(ArrayList<Student> students, String fromStudentName, String toStudentName, double amount) {
+        int indexf;
+        int indext;
+        for (int i = 0; i < students.size(); i++){
+            if(students.get(i).GetName().equals(fromStudentName))
+                indexf = i;
+            else if (students.get(i).GetName().equals(toStudentName))
+                indext = i;
+        }
+        if(students.get(indexf).GetBankAccount().GetBalance()>= amount)
+            students.get(indexf).GetBankAccount().GetBalance() -= amount;
 
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+
     }
 
     /**
