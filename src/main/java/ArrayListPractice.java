@@ -115,7 +115,9 @@ public class ArrayListPractice {
         for(int i =0; i < students.size(); i++)
             if(students.get(i).GetFavoriteColor().equals(color))
                 return students.get(i);
+        return null;
     }
+
 
     /**
      * Gets the favorite color for a specified student.
@@ -190,9 +192,6 @@ public class ArrayListPractice {
         return list;
     }
 
-    private static int teams(int i) {
-    }
-
     /**
      * Finds the student with the given name, and updates their favorite color to the given color.
      *
@@ -201,9 +200,11 @@ public class ArrayListPractice {
      * @param newFavoriteColor The new favorite color of the student.
      */
     public static void UpdateFavoriteColor(ArrayList<Student> students, String name, String newFavoriteColor) {
-
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        for(int i = 0; i< students.size(); i++) {
+            if(students.get(i).GetName().equals(name)){
+                students.get(i).SetFavoriteColor(newFavoriteColor);
+            }
+        }
     }
 
     /**
@@ -232,18 +233,25 @@ public class ArrayListPractice {
      *     had sufficient funds in their account. Otherwise, false.
      */
     public static boolean TransferMoney(ArrayList<Student> students, String fromStudentName, String toStudentName, double amount) {
-        int indexf;
-        int indext;
+        int indexf = -1;
+        int indext = -1;
         for (int i = 0; i < students.size(); i++){
             if(students.get(i).GetName().equals(fromStudentName))
                 indexf = i;
             else if (students.get(i).GetName().equals(toStudentName))
                 indext = i;
         }
-        if(students.get(indexf).GetBankAccount().GetBalance()>= amount)
-            students.get(indexf).GetBankAccount().GetBalance() -= amount;
-
-
+        if(indexf == -1 || indext==-1)
+            return false;
+        else if (students.get(indexf).GetBankAccount().GetBalance() < amount) {
+            return false;
+        }
+        else if (students.get(indexf).GetBankAccount().GetBalance() >= amount) {
+            students.get(indexf).GetBankAccount().Withdraw(amount);
+            students.get(indext).GetBankAccount().Deposit(amount);
+            return true;
+        }
+        return false;
     }
 
     /**
